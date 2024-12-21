@@ -249,17 +249,17 @@ class Shell {
                     // Traitement pour l'email
                     if (line.includes('Email:')) {
                         const email = line.split(':')[1].trim();
-                        return `Email: <a href="mailto:${email}" class="terminal-link">${email}</a>`;
+                        return line.replace(email, `<a href="mailto:${email}" class="terminal-link">${email}</a>`);
                     }
                     // Traitement pour GitHub
                     else if (line.includes('GitHub:')) {
                         const github = line.split(':')[1].trim();
-                        return `GitHub: <a href="${github}" target="_blank" class="terminal-link">${github}</a>`;
+                        return line.replace(github, `<a href="${github}" target="_blank" class="terminal-link">${github}</a>`);
                     }
                     // Traitement pour LinkedIn
                     else if (line.includes('LinkedIn:')) {
                         const linkedin = line.split(':')[1].trim();
-                        return `LinkedIn: <a href="${linkedin}" target="_blank" class="terminal-link">${linkedin}</a>`;
+                        return line.replace(linkedin, `<a href="${linkedin}" target="_blank" class="terminal-link">${linkedin}</a>`);
                     }
                     return line;
                 });

@@ -1009,5 +1009,6 @@ body::after {
 .terminal-link:hover {
     color: var(--neon-cyan);
     text-shadow: 0 0 5px var(--cyber-blue);
+    text-decoration: underline;
 }
   
