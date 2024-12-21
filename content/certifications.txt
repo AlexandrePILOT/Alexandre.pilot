@@ -1,0 +1,17 @@
+ ▄████▄  ▓█████ ██▀███  ▄▄▄█████▓  ██████     
+▒██▀ ▀█  ▓█   ▀▓██ ▒ ██▒▓  ██▒ ▓▒▒██    ▒     
+▒▓█    ▄ ▒███  ▓██ ░▄█ ▒▒ ▓██░ ▒░░ ▓██▄       
+▒▓▓▄ ▄██ ▒▓█  ▄▒██▀▀█▄  ░ ▓██▓ ░   ▒   ██▒    
+▒ ▓███▀ ▒░▒████░██▓ ▒██▒  ▒██▒ ░ ▒██████▒▒    
+░ ░▒ ▒  ░░░ ▒░ ░ ▒▓ ░▒▓░  ▒ ░░   ▒ ▒▓▒ ▒ ░    
+  ░  ▒  ░ ░ ░    ░▒ ░ ▒     ░    ░ ░▒  ░ ░    
+
+[~] ATTESTATIONS SPECTRALES
+==========================
+[~] Maître des Ombres Numériques
+    ├── Spectre: 0xPHANT0M
+    └── Niveau: Transcendant
+
+[~] Manipulateur d'Éther Digital
+    ├── Essence: 0xGH0ST
+    └── Portée: Omnisciente
