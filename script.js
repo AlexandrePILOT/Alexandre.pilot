@@ -361,7 +361,7 @@ class Shell {
         }
     }
 
-    payload() {
+    async payload() {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         const canvas2 = document.createElement('canvas'); 
@@ -443,6 +443,18 @@ class Shell {
             };
 
             animate();
+
+            // Ajouter un timer pour afficher l'image après 10 secondes
+            setTimeout(() => {
+                // Créer l'élément pour l'image plein écran
+                const fullscreenImage = document.createElement('div');
+                fullscreenImage.className = 'fullscreen-image';
+                fullscreenImage.innerHTML = `<img src="content/screen.png" alt="Hacked">`;
+                document.body.appendChild(fullscreenImage);
+
+                // Supprimer l'effet de fonte
+                meltEffect.remove();
+            }, 10000);
         });
     }
 
