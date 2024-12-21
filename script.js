@@ -187,11 +187,13 @@ class Shell {
 
     async loadFiles() {
         const promises = [];
+        console.log('Chargement des fichiers...');
         for (const filename of Object.keys(this.fileSystem)) {
             try {
                 if (filename.endsWith('.png')) {
                     // Pour les images, on stocke juste le chemin
                     this.fileSystem[filename] = `content/${filename}`;
+                    console.log(`Image chargée: ${filename}`);
                 } else {
                     // Pour les fichiers texte, on charge le contenu
                     const promise = fetch(`content/${filename}`)
@@ -201,6 +203,7 @@ class Shell {
                         })
                         .then(content => {
                             this.fileSystem[filename] = content;
+                            console.log(`Fichier chargé: ${filename}`);
                         })
                         .catch(error => {
                             console.error(`Erreur lors du chargement de ${filename}:`, error);
@@ -237,7 +240,33 @@ class Shell {
         const filename = args[0];
         
         if (this.fileSystem[filename] !== undefined) {
-            return this.fileSystem[filename];
+            let content = this.fileSystem[filename];
+            
+            // Si c'est le fichier contact.txt, on traite les liens
+            if (filename === 'contact.txt') {
+                const lines = content.split('\n');
+                const processedLines = lines.map(line => {
+                    // Traitement pour l'email
+                    if (line.includes('Email:')) {
+                        const email = line.split(':')[1].trim();
+                        return `Email: <a href="mailto:${email}" class="terminal-link">${email}</a>`;
+                    }
+                    // Traitement pour GitHub
+                    else if (line.includes('GitHub:')) {
+                        const github = line.split(':')[1].trim();
+                        return `GitHub: <a href="${github}" target="_blank" class="terminal-link">${github}</a>`;
+                    }
+                    // Traitement pour LinkedIn
+                    else if (line.includes('LinkedIn:')) {
+                        const linkedin = line.split(':')[1].trim();
+                        return `LinkedIn: <a href="${linkedin}" target="_blank" class="terminal-link">${linkedin}</a>`;
+                    }
+                    return line;
+                });
+                return processedLines.join('\n');
+            }
+            
+            return content;
         } else {
             return `Fichier non trouvé: ${filename}`;
         }
@@ -477,7 +506,7 @@ class Shell {
         fileContent.innerHTML = '';
         fileContent.style.whiteSpace = 'normal';
         
-        // Cr��er un conteneur pour centrer le jeu et les instructions
+        // Créer un conteneur pour centrer le jeu et les instructions
         const gameContainer = document.createElement('div');
         gameContainer.style.cssText = `
             display: flex;
@@ -871,7 +900,7 @@ class Terminal {
             output.textContent = text;
         } else {
             output.style.whiteSpace = 'pre';
-            output.textContent = text.trimEnd();
+            output.innerHTML = text.trimEnd();
         }
         
         this.content.appendChild(output);

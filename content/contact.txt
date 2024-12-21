@@ -10,7 +10,6 @@
 
 CONTACT
 -------
-Email: votre@email.com
-GitHub: github.com/votrecompte
+Email: alexandrepilot@protonmail.com
+GitHub: https://github.com/AlexandrePILOT/
 LinkedIn: https://www.linkedin.com/in/alexandre-pilot/
-Twitter: @votrecompte 

@@ -999,4 +999,15 @@ body::after {
     80% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-20px); }
 }
+
+.terminal-link {
+    color: var(--cyber-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.terminal-link:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--cyber-blue);
+}
   
