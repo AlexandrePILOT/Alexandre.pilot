@@ -129,6 +129,7 @@ class Shell {
             'cv.txt': null,
             'certifications.txt': null,
             'competences.txt': null,
+            'contact.txt': null,
             'chat.png': null
         };
 
@@ -476,7 +477,7 @@ class Shell {
         fileContent.innerHTML = '';
         fileContent.style.whiteSpace = 'normal';
         
-        // Créer un conteneur pour centrer le jeu et les instructions
+        // Cr��er un conteneur pour centrer le jeu et les instructions
         const gameContainer = document.createElement('div');
         gameContainer.style.cssText = `
             display: flex;
