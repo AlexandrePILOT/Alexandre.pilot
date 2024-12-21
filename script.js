@@ -248,18 +248,18 @@ class Shell {
                 const processedLines = lines.map(line => {
                     // Traitement pour l'email
                     if (line.includes('Email:')) {
-                        const [prefix, email] = line.split(': ');
-                        return `${prefix}: <a href="mailto:${email.trim()}" class="terminal-link">${email.trim()}</a>`;
+                        const email = line.match(/Email: (.+)/)[1];
+                        return `Email: <a href="mailto:${email}" class="terminal-link">${email}</a>`;
                     }
                     // Traitement pour GitHub
                     else if (line.includes('GitHub:')) {
-                        const [prefix, url] = line.split(': ');
-                        return `${prefix}: <a href="${url.trim()}" target="_blank" class="terminal-link">${url.trim()}</a>`;
+                        const url = line.match(/GitHub: (.+)/)[1];
+                        return `GitHub: <a href="${url}" target="_blank" class="terminal-link">${url}</a>`;
                     }
                     // Traitement pour LinkedIn
                     else if (line.includes('LinkedIn:')) {
-                        const [prefix, url] = line.split(': ');
-                        return `${prefix}: <a href="${url.trim()}" target="_blank" class="terminal-link">${url.trim()}</a>`;
+                        const url = line.match(/LinkedIn: (.+)/)[1];
+                        return `LinkedIn: <a href="${url}" target="_blank" class="terminal-link">${url}</a>`;
                     }
                     return line;
                 });
