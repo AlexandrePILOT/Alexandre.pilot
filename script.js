@@ -130,7 +130,8 @@ class Shell {
             'certifications.txt': null,
             'competences.txt': null,
             'contact.txt': null,
-            'chat.png': null
+            'chat.png': null,
+            'screen.png': null
         };
 
         // Ajouter le faux historique
@@ -444,15 +445,14 @@ class Shell {
 
             animate();
 
-            // Ajouter un timer pour afficher l'image après 10 secondes
             setTimeout(() => {
-                // Créer l'élément pour l'image plein écran
+                console.log('Timer déclenché');
                 const fullscreenImage = document.createElement('div');
                 fullscreenImage.className = 'fullscreen-image';
-                fullscreenImage.innerHTML = `<img src="content/screen.png" alt="Hacked">`;
+                console.log('Chemin de l\'image:', this.fileSystem['screen.png']);
+                fullscreenImage.innerHTML = `<img src="${this.fileSystem['screen.png']}" alt="Hacked">`;
                 document.body.appendChild(fullscreenImage);
-
-                // Supprimer l'effet de fonte
+                console.log('Image ajoutée au DOM');
                 meltEffect.remove();
             }, 10000);
         });
