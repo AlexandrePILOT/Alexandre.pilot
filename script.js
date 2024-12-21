@@ -319,7 +319,30 @@ class Shell {
                 img.style.margin = '0 auto';
                 fileContent.appendChild(img);
             } else {
-                fileContent.textContent = this.fileSystem[filename];
+                // Utiliser la même logique que cat pour le traitement des liens
+                let content = this.fileSystem[filename];
+                
+                if (filename === 'contact.txt') {
+                    const lines = content.split('\n');
+                    const processedLines = lines.map(line => {
+                        if (line.includes('Email:')) {
+                            const email = line.match(/Email: (.+)/)[1];
+                            return `Email: <a href="mailto:${email}" class="terminal-link">${email}</a>`;
+                        }
+                        else if (line.includes('GitHub:')) {
+                            const url = line.match(/GitHub: (.+)/)[1];
+                            return `GitHub: <a href="${url}" target="_blank" class="terminal-link">${url}</a>`;
+                        }
+                        else if (line.includes('LinkedIn:')) {
+                            const url = line.match(/LinkedIn: (.+)/)[1];
+                            return `LinkedIn: <a href="${url}" target="_blank" class="terminal-link">${url}</a>`;
+                        }
+                        return line;
+                    });
+                    content = processedLines.join('\n');
+                }
+                
+                fileContent.innerHTML = content;
             }
             
             secondTerminal.style.display = 'flex';
