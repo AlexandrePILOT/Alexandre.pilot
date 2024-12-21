@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sun"></div>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" id="help-link">
+                <i class="fas fa-question-circle"></i>
+            </a></li>
+            <li><a href="#" id="recipes-link">
+                <i class="fas fa-book-open"></i>
+            </a></li>
+            <li><a href="https://github.com/votre-compte" target="_blank">
+                <i class="fab fa-github"></i>
+            </a></li>
+            <li><a href="https://www.linkedin.com/in/alexandre-pilot" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a></li>
+        </ul>
+    </nav>
+
+    <div class="terminal-container">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-button red"></span>
+                    <span class="terminal-button yellow"></span>
+                    <span class="terminal-button green"></span>
+                </div>
+                <div class="terminal-title">alex@portfolio:~</div>
+            </div>
+            <div id="terminal-content">
+                <!-- L'historique des commandes s'affichera ici -->
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">alex@portfolio:~$</span>
+                <input type="text" id="terminal-input" autofocus>
+            </div>
+        </div>
+        <div class="terminal second-terminal" id="second-terminal" style="display: none;">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-button red"></span>
+                    <span class="terminal-button yellow"></span>
+                    <span class="terminal-button green"></span>
+                </div>
+                <div class="terminal-title">file-viewer:~</div>
+            </div>
+            <div id="file-content">
+                <!-- Le contenu du fichier s'affichera ici -->
+            </div>
+        </div>
+    </div>
+
+    <div class="help-overlay" id="help-overlay">
+        <div class="help-content">
+            <div class="help-header">
+                <h2>Guide du Terminal</h2>
+                <button class="close-help">×</button>
+            </div>
+            <div class="help-body">
+                <section>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>help</code> - Affiche la liste des commandes</li>
+                        <li><code>ls</code> - Liste les fichiers disponibles</li>
+                        <li><code>cat [fichier]</code> - Affiche le contenu d'un fichier</li>
+                        <li><code>clear</code> - Efface l'écran</li>
+                        <li><code>open [fichier]</code> - Ouvre un fichier dans une fenêtre séparée</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Fonctionnalités</h3>
+                    <ul>
+                        <li>Utilisez <kbd>Tab</kbd> pour l'autocomplétion</li>
+                        <li>Utilisez <kbd>↑</kbd> et <kbd>↓</kbd> pour naviguer dans l'historique</li>
+                        <li>Les fichiers images peuvent être ouverts avec la commande <code>open</code></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Easter Eggs</h3>
+                    <p>Il existe des commandes cachées à découvrir... Essayez des commandes comme <code>matrix</code>, <code>hack</code> ou <code>snake</code> !</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="page recipes-page" id="recipes-page">
+        <div class="recipes-content">
+            <div class="recipes-header">
+                <h2>Recipes & Notes</h2>
+                <button class="back-button">
+                    <i class="fas fa-terminal"></i> Terminal
+                </button>
+            </div>
+            <div class="recipes-body">
+                <div class="recipes-categories">
+                    <button class="category active" data-category="all">Tout</button>
+                    <button class="category" data-category="pentest">Pentest</button>
+                    <button class="category" data-category="sysadmin">SysAdmin</button>
+                    <button class="category" data-category="tools">Tools</button>
+                </div>
+                <div class="recipes-list">
+                    <!-- Les articles seront chargés ici dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>
