@@ -1011,4 +1011,16 @@ body::after {
     text-shadow: 0 0 5px var(--cyber-blue);
     text-decoration: underline;
 }
+
+#file-content .terminal-link {
+    color: var(--cyber-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#file-content .terminal-link:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--cyber-blue);
+    text-decoration: underline;
+}
   

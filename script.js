@@ -891,7 +891,7 @@ class Terminal {
                     const output = document.createElement('div');
                     output.className = 'command-output';
                     output.style.whiteSpace = 'pre';
-                    output.textContent = text;
+                    output.innerHTML = text;
                     const oldOutput = prompt.nextSibling;
                     if (oldOutput?.className === 'command-output') {
                         this.content.removeChild(oldOutput);
